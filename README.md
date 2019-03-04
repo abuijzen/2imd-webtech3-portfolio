@@ -1,7 +1,7 @@
 # Angelique Buijzen | Webtech3
 Deze map bevat alle opdrachten voor Webtech 3
 <br>
-## Lab1 | GIT to work
+## Lab 1 | GIT to work
 <br>
 
 [Opdracht 1: working together on GIT](https://github.com/lennertvk/2imd-webtech3-lab1)
@@ -11,7 +11,7 @@ Deze map bevat alle opdrachten voor Webtech 3
   
   
   
-## Lab2 | flexbox + CSS grid
+## Lab 2 | flexbox + CSS grid
   
   <br>Tutorial: Flexbox froggy<br><br>
   ![flexbox-froggy](https://github.com/abuijzen/2imd-webtech3-portfolio/blob/master/lab2/Flexbox-froggy-check.png)
