@@ -1,5 +1,5 @@
 # Angelique Buijzen | Webtech3
-<br>Deze map bevat alle opdrachten voor Webtech 3
+Deze map bevat alle opdrachten voor Webtech 3
 
 ## Lab1 | GIT to work
 <br>
