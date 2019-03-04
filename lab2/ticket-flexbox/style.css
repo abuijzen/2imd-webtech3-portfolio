@@ -1,1 +1,15 @@
+#ticket-grid{
+    display: grid;
+    border: 1px solid black;
+    grid-template-columns: 70% 30%;
+}
+
+#ticket-grid h2{
+    border: 1px solid black;
+}
+
+.hoofding{
+    display: grid;
+    grid-template-columns:1fr;
+}
 
