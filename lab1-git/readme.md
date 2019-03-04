@@ -1,4 +1,4 @@
-## Lab1 | GIT to work
+## Lab 1 | GIT to work
 <br>
 
 [Opdracht 1: working together on GIT](https://github.com/lennertvk/2imd-webtech3-lab1)
