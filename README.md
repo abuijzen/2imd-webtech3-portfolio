@@ -1,12 +1,9 @@
 # 2imd-webtech3-portfolio
 
-Lab1<br>
+##Lab1<br>
   Leren werken met github
   
-# The largest heading
-## The second largest heading
-###### The smallest heading
+[Ga naar project](2imd-webtech3-portfolio/lab1-git/)
   
-  
-Lab2<br>
+##Lab2<br>
   CSS Grid Layout & Flexbox
