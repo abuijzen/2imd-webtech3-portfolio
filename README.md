@@ -1,7 +1,7 @@
 # Angelique Buijzen | 2imd-webtech3-portfolio
 <br>Deze map bevat alle opdrachten voor Webtech 3
 
-## Lab1 | Github & git
+## Lab1 | GIT to work
 <br>
 [ga naar lab 1](https://github.com/abuijzen/2imd-webtech3-portfolio/tree/master/lab1-git)
  
@@ -10,7 +10,7 @@
   
   
   
-## Lab2 | CSS Grid Layout & Flexbox
+## Lab2 | flexbox + CSS grid
   
   <br>
   [ga naar lab 2](https://github.com/abuijzen/2imd-webtech3-portfolio/tree/master/lab2)
