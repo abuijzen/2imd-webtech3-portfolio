@@ -39,9 +39,6 @@
     text-decoration: none;
   }
 
-  
-  
-  
 
 
   /*--------Afbeeldingen----------------*/
@@ -54,4 +51,16 @@
   
   #photos div{
     padding:20px;
+  }
+
+
+
+  /*mobiele versie*/
+
+  @media(max-width:600px){
+
+
+
+    
+
   }
