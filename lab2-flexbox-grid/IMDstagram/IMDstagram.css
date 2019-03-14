@@ -5,38 +5,36 @@
   
   nav .logo{
     justify-content:space-between;
-    order:3;
+    order:0;
     align-content: flex-start;
   }
 
-  nav .typography{
-    order:1;
-  }
 
-  nav .ui{
-    order:2;
-  }
+.links{
+  display: flex;
+  flex-direction: row;
+  order:-1;
+}
 
-  nav .branding{
-    order:4;
-  }
 
-  nav .graffiti{
-    order:5;
-  }
-  
+.rechts{
+  display: flex;
+  flex-direction: row;
+}
+
   nav ul{
     display:flex;
     flex-direction:row;
     list-style:none;
     align-items:center;
     justify-content: space-around;
-    background-color: aqua;
+    
    
   }
 
   nav ul li a{
     text-decoration: none;
+    padding:10px;
   }
 
 
@@ -59,7 +57,16 @@
 
   @media(max-width:600px){
 
-
+    .links{
+      flex-direction: column;
+      margin-top: 80px;
+    }
+    
+    
+    .rechts{
+      flex-direction: column;
+      margin-top: 80px;
+    }
 
     
 
