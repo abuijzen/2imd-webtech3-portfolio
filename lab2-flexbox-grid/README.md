@@ -4,6 +4,7 @@
   ![flexbox-froggy](https://github.com/abuijzen/2imd-webtech3-portfolio/blob/master/lab2-flexbox-grid/Flexbox-froggy-check.png)
  
  
+ 
   
   <br>Tutorial: Grid garden<br><br>
   ![grid garden](https://github.com/abuijzen/2imd-webtech3-portfolio/blob/master/lab2-flexbox-grid/grid-garden.png)
@@ -11,3 +12,6 @@
 
 Opdracht: Ticket grid
 [Bekijk mijn opdracht op codepen](https://codepen.io/abuijzen/pen/wOyEBE)
+
+Opdracht: IMDstagram flexbox
+[Bekijk mijn opdracht op codepen](https://codepen.io/abuijzen/pen/moXaPX)
