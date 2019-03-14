@@ -55,22 +55,29 @@ body{
     grid-column: 1/2;
     display: grid;
     grid-template-rows: 1fr 1fr; 
+    background-color: #fff;
+    color:black;
 }
 
 h2{
     grid-row:1/2;
 }
 
+h1{
+    margin:0px;
+}
+
 .QR{
     grid-column: 2/3;
     grid-row:1/4;
-    align-content: center;
+    margin:auto;
 }
 
 .details{
     grid-row:2/3;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
+    margin:0px;
 }
 
 p{
