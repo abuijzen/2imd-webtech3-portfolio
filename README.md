@@ -18,4 +18,6 @@ Deze map bevat alle opdrachten voor Webtech 3
   
   <br>Tutorial: Grid garden<br><br>
   ![grid garden](https://github.com/abuijzen/2imd-webtech3-portfolio/blob/master/lab2-flexbox-grid/grid-garden.png)
-  
+  <br><br>
+Opdracht: CSS grid
+[Bekijk mijn opdracht op codepen](https://codepen.io/abuijzen/pen/wOyEBE)
