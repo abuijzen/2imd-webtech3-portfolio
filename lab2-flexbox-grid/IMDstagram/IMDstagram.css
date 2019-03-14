@@ -2,23 +2,49 @@
     box-sizing:border-box;
   }
   
-  nav{
-    display:flex;
-    flex-wrap:wrap;
-  }
   
   nav .logo{
     justify-content:space-between;
+    order:3;
+    align-content: flex-start;
+  }
+
+  nav .typography{
     order:1;
   }
+
+  nav .ui{
+    order:2;
+  }
+
+  nav .branding{
+    order:4;
+  }
+
+  nav .graffiti{
+    order:5;
+  }
   
-  nav ul li{
+  nav ul{
     display:flex;
     flex-direction:row;
     list-style:none;
+    align-items:center;
+    justify-content: space-around;
+    background-color: aqua;
+   
   }
+
+  nav ul li a{
+    text-decoration: none;
+  }
+
   
   
+  
+
+
+  /*--------Afbeeldingen----------------*/
   #photos{
     display:flex;
     flex-wrap:wrap;
