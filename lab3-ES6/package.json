@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "babel dist/script.js --watch --out-file source/script.js --presets=env -s"
+    "build": "babel source/script.js --watch --out-file dist/ --presets=env -s"
   },
   "author": "",
   "license": "ISC",
