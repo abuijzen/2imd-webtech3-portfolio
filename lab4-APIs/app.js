@@ -41,11 +41,31 @@ class Weather{
         })
     }
 
+/*
+    getGiphyData(){
 
-    getGiphy(){
-        //"https://giphy.com/gifs/
-       // "http://api.giphy.com/v1/gifs/search?q=sunny_key=${this.API_KEY_GIPHY}&limit=1.jpg"
-        let urlGiphy= `https://api.giphy.com/v1/gifs/search?api_key=${this.API_KEY_GIPHY}&q=sunny&offset=0&rating=G&lang=en.jpg`;
+    var url=`https://api.giphy.com/v1/gifs/search?api_key=${this.API_KEY_GIPHY}&q=sunny`
+
+        fetch(url)
+        .then(data => data.json())
+        .then(res =>{
+            console.log(res)
+
+            var arrayOfGifs = res.data
+            var firstItem = arrayOfGifs[0];
+            var giphyLink = firstItem.image.fixed_width.url
+            document.querySelector('#gif').setAttribute('src',giphyLink)
+        })
+
+        .catch(error => console.log(error))
+*/
+
+        getGiphy(){
+
+        let search = "cat";
+        let urlGiphy =`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${this.API_KEY_GIPHY}&limit=1&lang=en`;
+       
+
 
         fetch(urlGiphy)
         .then(response =>{
@@ -55,17 +75,21 @@ class Weather{
         })
         .then(json=>{
         console.log(json);
-        let imageSearch =(json.result[url]["imageid"])
         let giphy = document.createElement("div");
-        
-        giphy.innerHTML=`<img src= '${urlGiphy}'>`;
-        document.getElementById("container").appendChild(giphy);
+        let search = "sunny";
+        let imageSearch=(json.data[search]["url"]);
 
+        
+        giphy.innerHTML=`<img src= "https://media3.giphy.com/media/AC8n0wdJvnA6A/200_s.gif">`;
+        //giphy.innerHTML=`<img src= (giphy.data[0].images.original.url)>`;
+        document.getElementById("container").appendChild(giphy);
         console.log(giphy);
         })
 
     }
 
 }
+
+
 
 let app = new Weather(`fb03a92b4a767e8e67a5662226ddb892`,`yxRKm3nflyaTUlEIMhRfPMK4FmqdqIun`);
