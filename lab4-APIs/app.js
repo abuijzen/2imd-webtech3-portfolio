@@ -1,13 +1,12 @@
 class Weather{
-    constructor(API_KEY,API_KEY_GIPHY){
-        this.API_KEY_ = API_KEY;
-        this.API_KEY_GIPHY= API_KEY_GIPHY;
+    constructor(API_KEY){
+        this.API_KEY = API_KEY;
+        console.log("jow");
         this.initialize();
     }
 
     initialize(){
         this.getMyLocation();
-        this.getGiphy();
         //console.log(navigator);
     }
 
@@ -35,61 +34,89 @@ class Weather{
         })
         .then(json=>{
             console.log(json);
-            let temp = document.createElement("h1");
+            let temp = document.querySelector("h1");
             temp.innerHTML = json.currently.summary;
-            document.querySelector("h1").appendChild(temp);
+            document.querySelector("body").appendChild(temp);
+
+            //localstorage.setItem("weather", response);
+            //let weather = localstorage.getItem("weather");
         })
     }
-
-/*
-    getGiphyData(){
-
-    var url=`https://api.giphy.com/v1/gifs/search?api_key=${this.API_KEY_GIPHY}&q=sunny`
-
-        fetch(url)
-        .then(data => data.json())
-        .then(res =>{
-            console.log(res)
-
-            var arrayOfGifs = res.data
-            var firstItem = arrayOfGifs[0];
-            var giphyLink = firstItem.image.fixed_width.url
-            document.querySelector('#gif').setAttribute('src',giphyLink)
-        })
-
-        .catch(error => console.log(error))
-*/
-
-        getGiphy(){
-
-        let search = "cat";
-        let urlGiphy =`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${this.API_KEY_GIPHY}&limit=1&lang=en`;
-       
-
-
-        fetch(urlGiphy)
-        .then(response =>{
-        return response.json();
-        console.log($urlGiphy);
-
-        })
-        .then(json=>{
-        console.log(json);
-        let giphy = document.createElement("div");
-        let search = "sunny";
-        let imageSearch=(json.data[search]["url"]);
-
-        
-        giphy.innerHTML=`<img src= "https://media3.giphy.com/media/AC8n0wdJvnA6A/200_s.gif">`;
-        //giphy.innerHTML=`<img src= (giphy.data[0].images.original.url)>`;
-        document.getElementById("container").appendChild(giphy);
-        console.log(giphy);
-        })
-
-    }
-
+   
 }
 
+let app = new Weather('fb03a92b4a767e8e67a5662226ddb892');//API KEY
 
 
-let app = new Weather(`fb03a92b4a767e8e67a5662226ddb892`,`yxRKm3nflyaTUlEIMhRfPMK4FmqdqIun`);
+
+/// foto's--------------------------------
+
+class Giphy{
+
+    constructor(API_KEY_GIPHY){
+        this.API_KEY_GIPHY = API_KEY_GIPHY;
+        this.initialize();
+    }
+
+    initialize(){
+        this.getGiphy();
+    }
+
+    getGiphy(){
+
+    let search = "rain";
+    let urlGiphy =`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${this.API_KEY_GIPHY}&limit=1&lang=en`;
+
+    fetch(urlGiphy)
+
+    .then(response =>{
+    return response.json();
+    })
+
+    .then(json=>{
+    console.log(json);
+    
+    //zet het item in een div
+    let giphy = document.createElement("div");
+            
+            //krijg de eerste afbeelding terug uit de array
+            let id = json.data[0]["id"];
+            
+            //test
+            console.log("dit is de id van de image" + id);
+
+            giphy.innerHTML = `<img src=https://media0.giphy.com/media/${id}/giphy-preview.webp>`;
+            document.querySelector("#container").appendChild(giphy);
+
+
+
+
+
+/*
+    for (var i = 0; i<response.data.length; i++) {
+        var giphyURL = response.data[i].images.fixed_height.url;
+        var newImg = $("<img>");
+        newImg.attr("src", giphyURL);
+        $("#searchResults").append(newImg);
+    }*/
+
+    //let imageSearch=(json.result[1]["imageSearch"]);
+    //let imageSearch=(json.data[search]["url"]);
+    //console.log(imageSearch);
+
+
+        //let giphyURL = response.data[1].images.fixed_height.url;
+        //let newImg = $("<img>");
+
+        //giphy.innerHTML=`<img src=${giphyURL}">`;
+        //document.getElementById("container").appendChild(giphy);
+  
+        //giphy.innerHTML='<img src= data[0].images.original.url)>';
+        //document.getElementById("container").appendChild(giphy);
+        //console.log(giphy);
+    });
+
+}
+}
+
+let newapp = new Giphy('yxRKm3nflyaTUlEIMhRfPMK4FmqdqIun');
