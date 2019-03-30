@@ -1,25 +1,20 @@
 class Note {
   constructor(title) {
     this.title = title;
-    this.element = this.createElement(title);
+    // HINT🤩 this.element = this.createElement(title);
   }
   
   createElement(title){
     let newNote = document.createElement('div');
     
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
-    let notitie = document.createElement('p');
-    notitie.innerHTML = this.title;
-
-    newNote.appendChild(notitie);
-    newNote.classList.add("card");
+    
     return newNote;
   }
   
   add(){
     // HINT🤩
     // this function should append the note to the screen somehow
-    document.querySelector('.notes').appendChild(this.element);
   }
   
   saveToStorage(){
