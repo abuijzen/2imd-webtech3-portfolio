@@ -36,17 +36,27 @@ class Weather{
             console.log(json);
             let temp = document.querySelector("h1");
             temp.innerHTML = json.currently.summary;
-            document.querySelector("body").appendChild(temp);
+            document.querySelector("h1").appendChild(temp);
 
-            //localstorage.setItem("weather", response);
-            //let weather = localstorage.getItem("weather");
+            localStorage.setItem("weather", temp);
+            let weather = localStorage.getItem("weather");
+
+            console.log('this.temp'+ this.temp);
+            return this.temp;
+              
+            
+                
         })
+        // VARIABELE DIE NIET WERKT!
+        /*var A = function(){
+            this.temp=document.querySelector("h1");
+        } */
     }
-   
+    
 }
 
 let app = new Weather('fb03a92b4a767e8e67a5662226ddb892');//API KEY
-
+//this.temp=getWeather();
 
 
 /// foto's--------------------------------
@@ -64,7 +74,12 @@ class Giphy{
 
     getGiphy(){
 
-    let search = "rain";
+    // VARIABELE DIE NIET WERKT!
+    /*var B= function(){}
+    B.prototype=new A();
+    */
+
+    let search = "sunny";
     let urlGiphy =`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${this.API_KEY_GIPHY}&limit=1&lang=en`;
 
     fetch(urlGiphy)
@@ -85,7 +100,7 @@ class Giphy{
             //test
             console.log("dit is de id van de image" + id);
 
-            giphy.innerHTML = `<img src=https://media0.giphy.com/media/${id}/giphy-preview.webp>`;
+            giphy.innerHTML = `<img src=https://media0.giphy.com/media/${id}/giphy-preview.webp height="120">`;
             document.querySelector("#container").appendChild(giphy);
 
 
