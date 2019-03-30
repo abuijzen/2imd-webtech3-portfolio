@@ -2,19 +2,29 @@ class Note {
   constructor(title) {
     this.title = title;
     // HINT🤩 this.element = this.createElement(title);
+    this.element = this.createElement(title);
   }
   
   createElement(title){
     let newNote = document.createElement('div');
+    newNote.classList.add('card');
+    
     
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
-    
+    a.addEventListener('click',add);
     return newNote;
   }
   
   add(){
     // HINT🤩
     // this function should append the note to the screen somehow
+    let note = document.getElementById("txtAddNote").value;
+    let note = querySelector(".card");
+    let note = document.createTextNode(note);
+    let card = document.getElementById('notes');
+    
+    card.appendChild(note);
+    document.querySelector()
   }
   
   saveToStorage(){
@@ -26,6 +36,8 @@ class Note {
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+
+    
   } 
 }
 
