@@ -35,8 +35,8 @@ route.get('/', function(request, response, next) {
   response.end();
 });
 
-
-// GET: alle messages
+//---------------------------GET-----------------------------------//
+// alle messages opvragen of via gebruikersnaam
 // link => URL: localhost:3000/api/v1/messages
 // link => URL: localhost:3000/api/v1/messages?user=Ash
 route.get('/api/v1/messages', (request, response) => {
@@ -51,11 +51,9 @@ route.get('/api/v1/messages', (request, response) => {
   }
 });
 
-
-// GET: via id
-// link => URL: localhost:3000/api/v1/messages/1
-// link => URL: localhost:3000/api/v1/messages/2
-// link => URL: localhost:3000/api/v1/messages/3
+//---------------------------GET-----------------------------------//
+// message opvragen via id
+// link => URL: localhost:3000/api/v1/messages/NrID
 route.get('/api/v1/messages/:id', (request, response) => {
 
   // Controleren of er een ID overeenkomt met een bestaande ID
@@ -72,8 +70,8 @@ route.get('/api/v1/messages/:id', (request, response) => {
   }
 });
 
-
-// POST
+//---------------------------POST-----------------------------------//
+//message posten
 // link => POSTMAN: POST: localhost:3000/api/v1/messages 
 route.post('/api/v1/messages/', (request, response) => {
 
@@ -82,8 +80,36 @@ route.post('/api/v1/messages/', (request, response) => {
   
   //new message toevoegen aan het einde van de array
   messages.push(new_message);
-  response.json({ status:"success", message:"POSTING a new message for user <b>" + request.body.user +"</b>"});
+  response.json({ status:"success", message:"POSTING a new message for user " + request.body.user});
 });
+
+
+//---------------------------PUT-----------------------------------//
+// message wijzigen via gekozen id
+// link => POSTMAN: localhost:3000/api/v1/messages/NrID
+route.put('/api/v1/messages/:id', (request, response) => {
+
+  const message = messages.find(my_int => my_int.id === parseInt(request.params.id));
+
+  if(!message){
+    response.status(404).json({status:"error","message":"Message with ID "+ request.params.id +" does not exist"})
+  }
+  else {
+    // message wijzigen op specifieke index
+    messages.splice({id: request.params.id}, 1, request.body);
+    response.json({status:"success", message: "UPDATING a message with ID "+ request.params.id});
+  } 
+});
+
+
+
+
+
+
+
+
+
+
 
 
 
