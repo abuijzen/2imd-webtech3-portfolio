@@ -73,6 +73,21 @@ route.get('/api/v1/messages/:id', (request, response) => {
 });
 
 
+// POST
+// link => POSTMAN: POST: localhost:3000/api/v1/messages 
+route.post('/api/v1/messages/', (request, response) => {
+
+  //De ID word automatisch bijgevoegd  bij een nieuwe post (auto increment)
+  const new_message = { id: messages.length + 1, user: request.body.user, message: request.body.message };
+  
+  //new message toevoegen aan het einde van de array
+  messages.push(new_message);
+  response.json({ status:"success", message:"POSTING a new message for user <b>" + request.body.user +"</b>"});
+});
+
+
+
+
 
 
 
