@@ -1,6 +1,6 @@
 //code runnen
 // 1) npm install
-// 2) DEBUG=HIERFOLDERNAAM:* npm start
+// 2) npm start
 // 3) code runt automatisch op poort 3000
 
 
@@ -42,11 +42,11 @@ route.get('/', function(request, response, next) {
 route.get('/api/v1/messages', (request, response) => {
 
   if (!request.query.user) {
-      //geen message gevonden = foutmelding
+      // geen message gevonden = foutmelding
       response.json({status:"success",message: "GETTING all messages, count "+ messages.length +" messages"});
   }
   else {
-      //wel message gevongen = json doorsturen
+      // wel message gevongen = json doorsturen
       response.json({"message" : "GETTING message with username "+ request.query.user});
   }
 });
@@ -56,29 +56,29 @@ route.get('/api/v1/messages', (request, response) => {
 // link => URL: localhost:3000/api/v1/messages/NrID
 route.get('/api/v1/messages/:id', (request, response) => {
 
-  // Controleren of er een ID overeenkomt met een bestaande ID
+  // controleren of er een ID overeenkomt met een bestaande ID
   const message = messages.find(my_int => my_int.id === parseInt(request.params.id));
 
   
   if(!message){
-    //geen message gevonden = foutmelding
+    // geen message gevonden = foutmelding
     response.status(404).json({status:"error","message":"Message with ID " + request.params.id +" does not exist"})
   }
   else {
-    //wel message gevongen = json doorsturen
+    // wel message gevongen = json doorsturen
     response.json({status:"success", message:"GETTING message with ID " + request.params.id});
   }
 });
 
 //---------------------------POST-----------------------------------//
-//message posten
+// message posten
 // link => POSTMAN: POST: localhost:3000/api/v1/messages 
 route.post('/api/v1/messages/', (request, response) => {
 
-  //De ID word automatisch bijgevoegd  bij een nieuwe post (auto increment)
+  // De ID word automatisch bijgevoegd  bij een nieuwe post (auto increment)
   const new_message = { id: messages.length + 1, user: request.body.user, message: request.body.message };
   
-  //new message toevoegen aan het einde van de array
+  // new message toevoegen aan het einde van de array
   messages.push(new_message);
   response.json({ status:"success", message:"POSTING a new message for user " + request.body.user});
 });
@@ -92,9 +92,11 @@ route.put('/api/v1/messages/:id', (request, response) => {
   const message = messages.find(my_int => my_int.id === parseInt(request.params.id));
 
   if(!message){
+    // geen message gevonden = foutmelding
     response.status(404).json({status:"error","message":"Message with ID "+ request.params.id +" does not exist"})
   }
   else {
+    // wel message gevongen = json doorsturen
     // message wijzigen op specifieke index
     messages.splice({id: request.params.id}, 1, request.body);
     response.json({status:"success", message: "UPDATING a message with ID "+ request.params.id});
@@ -102,20 +104,29 @@ route.put('/api/v1/messages/:id', (request, response) => {
 });
 
 
+//---------------------------DELETE-----------------------------------//
+
+// Message verwijderen via id
+// link => POSTMAN: localhost:3000/api/v1/messages/NrID
+route.delete('/api/v1/messages/:id', (request, response) => {
 
 
+  const message_to_delete = messages.find(a => a.id === parseInt(request.params.id));
 
-
-
-
-
-
-
-
-
-
-
-
+   if(!message_to_delete){
+     // geen message gevonden = foutmelding
+     response.status(404).json({status:"error", message:"The id "+request.params.id+" does not exist"})
+   }
+   else {
+      // wel message gevonden
+      // vind de index van de message 
+      const index = messages.indexOf(message_to_delete);
+      // verwijder message
+      messages.splice(index, 1);
+      // json doorsturen
+      response.json({status:"success", message:"DELETING a message with ID "+ request.params.id});
+   }
+});
 
 
 module.exports = route;
