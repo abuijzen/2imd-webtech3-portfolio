@@ -1,7 +1,6 @@
 class Weather{
     constructor(API_KEY){
         this.API_KEY = API_KEY;
-        console.log("jow");
         this.initialize();
     }
 
@@ -36,28 +35,23 @@ class Weather{
             console.log(json);
             let temp = document.querySelector("h1");
             temp.innerHTML = json.currently.summary;
-            document.querySelector("h1").appendChild(temp);
-
+            document.querySelector("#weather").appendChild(temp);
             localStorage.setItem("weather", temp);
             let weather = localStorage.getItem("weather");
 
-            console.log('this.temp'+ this.temp);
             return this.temp;
-              
-            
-                
-        })
-        // VARIABELE DIE NIET WERKT!
-        /*var A = function(){
-            this.temp=document.querySelector("h1");
-        } */
+                   
+        }) 
     }
     
+    //probere de functie uit te stellen zodat #weather al is ingevuld door getweather
+    //daarna pas getGiphy starten
+    if(getWeather){
+        setTimeout(getGiphy),10000;
+    }
+
 }
-
 let app = new Weather('fb03a92b4a767e8e67a5662226ddb892');//API KEY
-//this.temp=getWeather();
-
 
 /// foto's--------------------------------
 
@@ -74,14 +68,10 @@ class Giphy{
 
     getGiphy(){
 
-    // VARIABELE DIE NIET WERKT!
-    /*var B= function(){}
-    B.prototype=new A();
-    */
-
-    let search = "sunny";
+    let search = document.querySelector("#weather");
+  
     let urlGiphy =`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${this.API_KEY_GIPHY}&limit=1&lang=en`;
-
+    
     fetch(urlGiphy)
 
     .then(response =>{
@@ -98,40 +88,13 @@ class Giphy{
             let id = json.data[0]["id"];
             
             //test
-            console.log("dit is de id van de image" + id);
+            console.log("zoekterm is"+ search);
 
-            giphy.innerHTML = `<img src=https://media0.giphy.com/media/${id}/giphy-preview.webp height="120">`;
+            giphy.innerHTML = `<img src=https://media0.giphy.com/media/${id}/giphy-preview.webp height="100">`;
             document.querySelector("#container").appendChild(giphy);
-
-
-
-
-
-/*
-    for (var i = 0; i<response.data.length; i++) {
-        var giphyURL = response.data[i].images.fixed_height.url;
-        var newImg = $("<img>");
-        newImg.attr("src", giphyURL);
-        $("#searchResults").append(newImg);
-    }*/
-
-    //let imageSearch=(json.result[1]["imageSearch"]);
-    //let imageSearch=(json.data[search]["url"]);
-    //console.log(imageSearch);
-
-
-        //let giphyURL = response.data[1].images.fixed_height.url;
-        //let newImg = $("<img>");
-
-        //giphy.innerHTML=`<img src=${giphyURL}">`;
-        //document.getElementById("container").appendChild(giphy);
-  
-        //giphy.innerHTML='<img src= data[0].images.original.url)>';
-        //document.getElementById("container").appendChild(giphy);
-        //console.log(giphy);
     });
 
 }
-}
+    }
 
 let newapp = new Giphy('yxRKm3nflyaTUlEIMhRfPMK4FmqdqIun');
