@@ -1,10 +1,10 @@
     
 {
-  "name": "myapp2",
-  "version": "0.0.0",
+  "name": "2imd-webtech3-portfolio",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "lab5-nodejs/bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -14,4 +14,3 @@
     "morgan": "~1.9.0",
     "pug": "^2.0.3"
   }
-}
