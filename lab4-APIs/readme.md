@@ -1,7 +1,7 @@
 ## Lab 4 | API
   
   <br>Voorvertoning:<br><br>
-  ![weather+giphy API](https://github.com/abuijzen/2imd-webtech3-portfolio/blob/master/lab4-APIs/Schermafbeelding%202019-04-01%20om%2015.03.47.png)
+  ![weather+giphy API](https://github.com/abuijzen/2imd-webtech3-portfolio/blob/master/lab4-APIs/Schermafbeelding%202019-04-18%20om%2015.10.42.png)
 
 [Bekijk mijn opdracht op github](https://github.com/abuijzen/2imd-webtech3-portfolio/tree/master/lab4-APIs)
 <br>
