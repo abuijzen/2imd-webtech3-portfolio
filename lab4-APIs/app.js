@@ -23,6 +23,35 @@ class Weather{
         console.log("error");
     });
     }
+  
+    getGiphy(weather){
+      console.log("GETTIN GIPHY FOR: " + weather);
+
+      let search = weather;
+  
+      let urlGiphy =`https://api.giphy.com/v1/gifs/search?q=${search}&api_key=yxRKm3nflyaTUlEIMhRfPMK4FmqdqIun&limit=1&lang=en`;
+      
+      fetch(urlGiphy)
+  
+      .then(response =>{
+      return response.json();
+      })
+  
+      .then(json=>{
+      console.log(json);
+      
+      //zet het item in een div
+      let giphy = document.createElement("div");
+              
+              //krijg de eerste afbeelding terug uit de array
+              let id = json.data[0]["id"];
+  
+              giphy.innerHTML = `<img src=https://media0.giphy.com/media/${id}/giphy-preview.webp height="100">`;
+              document.querySelector("#container").appendChild(giphy);
+      });
+
+
+    }
 
     getWeather(lat,lng){
 
@@ -32,69 +61,21 @@ class Weather{
             return response.json();
         })
         .then(json=>{
-            console.log(json);
+            //console.log(json);
+            let summary = json.currently.summary; // partly cloudy
             let temp = document.querySelector("h1");
-            temp.innerHTML = json.currently.summary;
-            document.querySelector("#weather").appendChild(temp);
-            localStorage.setItem("weather", temp);
-            let weather = localStorage.getItem("weather");
-
-            return this.temp;
-                   
+            temp.innerHTML = summary;
+            //document.querySelector("#weather").append(summary);
+            localStorage.setItem("weather", summary);
+          
+            
+            // API 2
+            this.getGiphy(summary);
+                 
         }) 
     }
     
-    //probere de functie uit te stellen zodat #weather al is ingevuld door getweather
-    //daarna pas getGiphy starten
-    if(getWeather){
-        setTimeout(getGiphy),10000;
-    }
+   
 
 }
 let app = new Weather('fb03a92b4a767e8e67a5662226ddb892');//API KEY
-
-/// foto's--------------------------------
-
-class Giphy{
-
-    constructor(API_KEY_GIPHY){
-        this.API_KEY_GIPHY = API_KEY_GIPHY;
-        this.initialize();
-    }
-
-    initialize(){
-        this.getGiphy();
-    }
-
-    getGiphy(){
-
-    let search = document.querySelector("#weather");
-  
-    let urlGiphy =`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=${this.API_KEY_GIPHY}&limit=1&lang=en`;
-    
-    fetch(urlGiphy)
-
-    .then(response =>{
-    return response.json();
-    })
-
-    .then(json=>{
-    console.log(json);
-    
-    //zet het item in een div
-    let giphy = document.createElement("div");
-            
-            //krijg de eerste afbeelding terug uit de array
-            let id = json.data[0]["id"];
-            
-            //test
-            console.log("zoekterm is"+ search);
-
-            giphy.innerHTML = `<img src=https://media0.giphy.com/media/${id}/giphy-preview.webp height="100">`;
-            document.querySelector("#container").appendChild(giphy);
-    });
-
-}
-    }
-
-let newapp = new Giphy('yxRKm3nflyaTUlEIMhRfPMK4FmqdqIun');
